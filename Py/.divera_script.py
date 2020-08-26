@@ -5,16 +5,18 @@ import datetime
 import requests
 import time
 
-ACCESSKEY="{YOUR ACCESS KEY}"
+ACCESSKEY="{XYZ}"
 API_URL="https://www.divera247.com/api/last-alarm?accesskey="+ACCESSKEY
 screen_active=True
 
 #wrapper methode that calls the diver monitor commands from the bash script
 def monitor(command):
 	if(command=="on"):
-		subprocess.Popen(['bash','-c','. .divera_commands.sh; monitor on'])
+		#subprocess.Popen(['bash','-c','. .divera_commands.sh; monitor on'])
+		subprocess.Popen(['bash','-c','. ./monitordaueran; monitor on'])
 	elif(command=="off"):
-		subprocess.Popen(['bash','-c','. .divera_commands.sh; monitor off'])
+		#subprocess.Popen(['bash','-c','. .divera_commands.sh; monitor off'])
+		subprocess.Popen(['bash','-c','. ./monitordaueraus; monitor off'])
 
 #wrapper methode that calls the diver screen commands from the bash script
 def screen(command):
@@ -43,13 +45,13 @@ while True:
 	
 	#here you can define your duty times
 	#Wednesday duty
-	if(day_of_week==3 and hour >= 17):
-		duty_time=True
-	if(day_of_week==4 and hour < 1):
-		duty_time=True
+	#if(day_of_week==3 and hour >= 17):
+	#	duty_time=True
+	#if(day_of_week==4 and hour < 1):
+	#	duty_time=True
 	#Saturday duty
-	if(day_of_week== 6 and hour >= 7 and hour <= 19):
-		duty_time=True
+	#if(day_of_week== 6 and hour >= 7 and hour <= 19):
+	#	duty_time=True
 
 	#case: active mission and monitor off
 	if(alarm_active == True and screen_active == False):
@@ -70,13 +72,13 @@ while True:
 		screen_active=False
     
 	#case: monitor off an no mission and it is night time so make updates
-	elif(alarm_active == False and screen_active == False and hour == 3 and minutes == 5):
-		print("Updating and restarting Raspberry")
+	#elif(alarm_active == False and screen_active == False and hour == 3 and minutes == 5):
+	#	print("Updating and restarting Raspberry")
 		#wait a moment that he wont do two updates when he is faster then a minute with update and reboot
-		time.sleep(45)
-		subprocess.Popen(['sudo', 'apt', 'update']).wait()
-		subprocess.Popen(['sudo', 'apt', '--yes', '--force-yes', 'upgrade']).wait()
-		subprocess.Popen(['sudo', 'reboot'])
+	#	time.sleep(45)
+	#	subprocess.Popen(['sudo', 'apt', 'update']).wait()
+	#	subprocess.Popen(['sudo', 'apt', '--yes', '--force-yes', 'upgrade']).wait()
+	#	subprocess.Popen(['sudo', 'reboot'])
         
     #sleeps 30 seconds and starts again
 	time.sleep(30)
