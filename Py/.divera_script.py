@@ -11,19 +11,23 @@ screen_active=True
 
 #wrapper methode that calls the diver monitor commands from the bash script
 def monitor(command):
-	if(command=="on"):
+	if(command=="on"):		
+		subprocess.Popen(['monitor on'], shell=True)
 		#subprocess.Popen(['bash','-c','. .divera_commands.sh; monitor on'])
-		subprocess.Popen(['bash','-c','. ./monitordaueran; monitor on'])
+		#subprocess.Popen(['bash','-c','. ./monitordaueran; monitor on'])
 	elif(command=="off"):
+	    subprocess.Popen(['monitor off'], shell=True)
 		#subprocess.Popen(['bash','-c','. .divera_commands.sh; monitor off'])
-		subprocess.Popen(['bash','-c','. ./monitordaueraus; monitor off'])
+		#subprocess.Popen(['bash','-c','. ./monitordaueraus; monitor off'])
 
 #wrapper methode that calls the diver screen commands from the bash script
 def screen(command):
 	if(command=="on"):
-		subprocess.Popen(['bash','-c','. .divera_commands.sh; screen on'])
+	    subprocess.Popen(['screen on'], shell=True)
+		#subprocess.Popen(['bash','-c','. .divera_commands.sh; screen on'])
 	elif(command=="off"):
-		subprocess.Popen(['bash','-c','. .divera_commands.sh; screen off'])
+	    subprocess.Popen(['screen off'], shell=True)
+		#subprocess.Popen(['bash','-c','. .divera_commands.sh; screen off'])
 
 #at boot show the monitor
 monitor("on")
