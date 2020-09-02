@@ -44,3 +44,7 @@ import subprocess
 
 def bash_command(cmd):
     subprocess.Popen(['/bin/bash', '-c', cmd])
+___
+
+
+subprocess.run(["monitor", "on"]) 

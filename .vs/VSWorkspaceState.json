@@ -1,6 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\CPPs_Archiv",
+    "\\Helps",
+    "\\Py",
+    "\\Shells"
   ],
+  "SelectedNode": "\\CPPs_Archiv\\alarm.cpp",
   "PreviewInSolutionExplorer": false
 }
