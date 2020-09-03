@@ -36,12 +36,22 @@ $AlarmSingleBatchFilePath = $AlarmBatchFilePath + "\" + $AlarmBatchDateiName
 $PSFilePath = Get-Location
 $PSFilePath = $PSFilePath.Path+'\'+'VG-HUMI-DIVERA-Fallback-Alarm.ps1'
 #$EinheitTest = 4711
+New-Item $AlarmSingleBatchFilePath 
+
 
 $AlarmSingleBatchFileContent = 'powershell -Command '+'"'+$PSFilePath+'" ' + $Einheit.SchleifenID
 #$AlarmSingleBatchFileContent = 'powershell -file '+'"'+$PSFilePath+'" ' + $EinheitTest
-New-Item $AlarmSingleBatchFilePath
+#Add-Content 'echo Executing Script in %SCRIPT_LOCATION%'
+#Add-Content 'powershell -Command '+'"'+$PSFilePath+'" ' + $Einheit.SchleifenID
 
-Set-Content $AlarmSingleBatchFilePath $AlarmSingleBatchFileContent
+$BatchString = @" 
+cd "C:\Users\Divera\Desktop\Rueckfall\Ausloesung\"
+$AlarmSingleBatchFileContent
+"@
+
+Set-Content $AlarmSingleBatchFilePath $BatchString
+
+#Set-Content $AlarmSingleBatchFilePath $AlarmSingleBatchFileContent
 #Write-Host $i
 $i = $i + 1
 }
