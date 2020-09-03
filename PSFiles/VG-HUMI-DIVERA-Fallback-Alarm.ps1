@@ -531,6 +531,16 @@ if($TestItemArray -ne "" -and $sucessful)
     if ($AktuelleEinheitArt -eq 'Untereinheit')
     {
 		$EinheitUntereinheitAlarmiert = $ItemEinsatzJSON.cluster.Contains($AktuelleEinheitGruppenID)
+		#Sondercheck wenn nur eine Einheit Alarmiert ist
+		#checken $ItemEinsatzJSON.cluster_id is eq AktuelleEinheit
+		if (!$EinheitUntereinheitAlarmiert)
+		{
+			$EinheitUntereinheitAlarmiertCheck = $ItemEinsatzJSON.cluster_id
+			if ($AktuelleEinheitGruppenID -eq $EinheitUntereinheitAlarmiertCheck)
+			{
+				$EinheitUntereinheitAlarmiert = $true
+			}
+		}
         $InfoUntereinheitAlarmiert = 'Untereinheit Alarmiert ' + $EinheitUntereinheitAlarmiert
         write-AlarmLogRecord -Typ INFO $InfoUntereinheitAlarmiert
     }
