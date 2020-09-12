@@ -51,13 +51,11 @@
         Version 1.0.5 - 18.05.2020 - Anpassung URL Aufruf mit WinXP-WebRequest Helper Funktion
         Version 1.0.6 - 04.06.2020 - Doppelter Aufruf verhindern via Log File
         Version 1.0.7 - 23.06.2020 - Logging Erweirtert - Config File um Einheiten Art erweitert - Prüfungsfehler mit Einheitenart korrigiert
-	*   Version 1.0.8 - 26.08.2020 - Abfrage aller nicht archivierter Einsätze - Funktion erweitert geändert - Logging erweitert - Umstrukturierung neuer Rechner
+	*   Version 1.0.8 - 26.08.2020 - Abfrage aller nicht archivierter Einsätze - Funktion erweitert geändert - Logging erweitert - Umstrukturierung neuer Rechner - Abfang nicht vorhandene 5-TonFolge - Globaler AccessKey Parameter
 	    Version 1.0.9 - XX.XX.2020 - In Entwicklung: 
 
 
 #>
-
-
 
 
 
@@ -73,7 +71,6 @@
 
 
 
-
 param(
   [Parameter(Mandatory = $true,Position = 0,HelpMessage = "Zwingender Aufrufparameter - hier wird die aktuell ausgewerte 5-Ton Folge mitgeben")]
   [string]$5TonFolge,
@@ -85,12 +82,20 @@ param(
 
 
 ##############################################   Globale Parameter  ##############################################
-#ZeitVariable ab wann (Sekunden) ein Zusatzalarm ausgelöst werden soll
-#[bool]$AlarmAusloesungScharf = $true
-[bool]$AlarmAusloesungScharf = $false
-$SekundenAbweichung = 30
-$SekundenSchlafDauer = 10
+
 $DIVERA_Accesskey='XYZ'
+#ZeitVariable ab wann (Sekunden) ein Zusatzalarm ausgelöst werden soll
+[bool]$AlarmAusloesungScharf = $true
+#[bool]$AlarmAusloesungScharf = $false
+$SekundenAbweichung = 300
+$SekundenSchlafDauer = 10
+
+#DevPath
+#Set-Location -Path C:\Users\Andreas\source\repos\amueller5560\rpidivera\PSFiles
+Set-Location -Path C:\Users\Divera\Desktop\Rueckfall\Ausloesung
+$EchoLocation = Get-Location
+Write-Host $EchoLocation
+
 ##############################################Globale Parameter Ende##############################################
 
 
@@ -363,7 +368,8 @@ function check-ScriptDuplicationTestSetterRemover
 
 
 #$ConfigFilePath = "C:\XXX\XXX\VG-HUMI-DIVERA-Einheiten-Gruppen.txt"
-$ConfigFilePath = Get-Location
+$ConfigFilePath = $EchoLocation
+#$ConfigFilePath = Get-Location
 $ConfigFilePath = $ConfigFilePath.Path + '\' + 'VG-HUMI-DIVERA-Einheiten-Gruppen.txt'
 # Pfad zum Ablegen der LogDateien            
 #$LogPfad = "C:\XXX\XXX\Logs"
@@ -467,6 +473,16 @@ $ConfigEinheitenJSON = $ConfigFile | ConvertFrom-Json
 #$ConfigEinheitenJSON = ConvertFrom-Json20 $Con$5figFile
 
 $AktuelleEinheit = $ConfigEinheitenJSON.Einheiten | Where-Object { $_.SchleifenID -eq $SchleifenParameter }
+if($AktuelleEinheit -eq $null)
+{
+	$5TonFolgeoRelevanz = 'Aktuell alarmierte Einheit nicht in Config-File von Relevanz - Abbruch: ' +$SchleifenParameter 
+	write-AlarmLogRecord -Typ INFO $5TonFolgeoRelevanz
+	check-ScriptDuplicationTestSetterRemover $5TonFolge
+    Write-Host 'Aktuell alarmierte Einheit nicht in Config-File von Relevanz - Abbruch!'
+	exit
+}
+
+
 $AktuelleEinheitAlarmvorlageID = $AktuelleEinheit.AlarmVorlagenID
 $AktuelleEinheitGruppenID = $AktuelleEinheit.UntereinheitGruppenID
 $AktuelleEinheitName = $AktuelleEinheit.FeuerwehrGruppe
@@ -491,11 +507,10 @@ write-AlarmLogRecord -Typ INFO 'Warte Ende'
 write-AlarmLogRecord -Typ INFO 'Checke letzten Alarm für Einheit'
 #Gruppen oder Einheiten ID
 
-#1.
-##$alarmdatacheck = 'https://www.divera247.com/api/last-alarm?accesskey=XYZ'
+#1.+ "&accesskey="+$DIVERA_Accesskey
+##$alarmdatacheck = 'https://www.divera247.com/api/last-alarm?'+ "accesskey="+$DIVERA_Accesskey
 #geänderter Funktionsaufruf
-$alarmdatacheck = 'https://www.divera247.com/api/v2/alarms?accesskey='+$DIVERA_Accesskey
-
+$alarmdatacheck = 'https://www.divera247.com/api/v2/alarms?'+ "accesskey="+$DIVERA_Accesskey
 
 #Windows 10 Aufruf:
 $alarmdatacheck = curl $alarmdatacheck
