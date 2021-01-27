@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 
 import subprocess
-import datetime
 import requests
 import time
+import json
+from datetime import datetime
 
-ACCESSKEY="{XYZ}"
+ACCESSKEY="h0drGF0jtGurBauAkxKEBS9OvAuXXozOHjPf-yIt_ZAHyRf86Wum6cWG83JAPXxW"
 API_URL="https://www.divera247.com/api/last-alarm?accesskey="+ACCESSKEY
 screen_active=True
 
@@ -59,9 +60,41 @@ while True:
 
 	#case: active mission and monitor off
 	if(alarm_active == True and screen_active == False):
-		print("Mission turning display on")
-		screen("on")
-		screen_active=True
+		#check time 
+		url = API_URL
+		urlreq = requests.get(url)
+		missiondata= json.loads(urlreq.text) 
+		missionid = (missiondata['data']['id'])
+		date = (missiondata['data']['date'])
+		deleted = (missiondata['data']['deleted'])
+		closed = (missiondata['data']['closed'])
+		print date
+		#print deleted
+		#print closed
+		timestamp = date
+		einsatzzeit = datetime.fromtimestamp(timestamp)
+		currentdate=datetime.now()
+		einsatzzeitstring=einsatzzeit.strftime("%Y-%m-%d %H:%M:%S")
+		currentdatestring=currentdate.strftime("%Y-%m-%d %H:%M:%S")
+		fmt = '%Y-%m-%d %H:%M:%S'
+		d1 = datetime.strptime(einsatzzeitstring, fmt)
+		d2 = datetime.strptime(currentdatestring, fmt)
+		secondsDiff = (d2-d1).seconds
+		minutsDiff = (d2-d1).seconds / 60
+		print secondsDiff
+		print minutsDiff
+		if(secondsDiff < 600):
+			print("Mission turning display on")
+			screen("on")
+			screen_active=True
+			#sleep 
+			sleep(600)
+			#turn of after sleep
+			print("Turn display off")
+			screen("off")
+		else:
+			print("No action - Einsatz erledigt!")
+
         
 	#case: duty time and mission off
 	elif(duty_time == True and screen_active == False):

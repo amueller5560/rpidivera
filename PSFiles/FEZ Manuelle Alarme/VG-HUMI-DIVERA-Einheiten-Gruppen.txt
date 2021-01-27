@@ -2,6 +2,7 @@
   "Einheiten": [
     {
       "EinheitenNummer": 22,
+      "RelevantFEZAlarm": "j",
       "FeuerwehrGruppe": "Loeschgruppe Biebernheim",
       "UntereinheitGruppenID": 11433,
       "AlarmVorlagenID": 17103,
@@ -11,6 +12,7 @@
     },
     {
       "EinheitenNummer": 1,
+      "RelevantFEZAlarm": "j",
       "FeuerwehrGruppe": "Loeschzug Emmelshausen",
       "UntereinheitGruppenID": 11429,
       "AlarmVorlagenID": 17104,
@@ -20,6 +22,7 @@
     },
     {
       "EinheitenNummer": 21,
+      "RelevantFEZAlarm": "j",
       "FeuerwehrGruppe": "Loeschzug St. Goar",
       "UntereinheitGruppenID": 11510,
       "AlarmVorlagenID": 17107,
@@ -29,6 +32,7 @@
     },
     {
       "EinheitenNummer": 23,
+      "RelevantFEZAlarm": "j",
       "FeuerwehrGruppe": "Loeschgruppe Werlau",
       "UntereinheitGruppenID": 11716,
       "AlarmVorlagenID": 17108,
@@ -38,6 +42,7 @@
     },
     {
       "EinheitenNummer": 19,
+      "RelevantFEZAlarm": "j",
       "FeuerwehrGruppe": "Loeschgruppe Urbar",
       "UntereinheitGruppenID": 11715,
       "AlarmVorlagenID": 17109,
@@ -47,6 +52,7 @@
     },
     {
       "EinheitenNummer": 18,
+      "RelevantFEZAlarm": "j",
       "FeuerwehrGruppe": "Loeschgruppe Niederburg",
       "UntereinheitGruppenID": 11713,
       "AlarmVorlagenID": 17110,
@@ -56,6 +62,7 @@
     },
     {
       "EinheitenNummer": 17,
+      "RelevantFEZAlarm": "j",
       "FeuerwehrGruppe": "Loeschgruppe Damscheid",
       "UntereinheitGruppenID": 11709,
       "AlarmVorlagenID": 17111,
@@ -65,6 +72,7 @@
     },
     {
       "EinheitenNummer": 11,
+      "RelevantFEZAlarm": "j",
       "FeuerwehrGruppe": "Loeschzug Oberwesel",
       "UntereinheitGruppenID": 11512,
       "AlarmVorlagenID": 17112,
@@ -74,6 +82,7 @@
     },
     {
       "EinheitenNummer": 12,
+      "RelevantFEZAlarm": "j",
       "FeuerwehrGruppe": "Loeschgruppe Dellhofen",
       "UntereinheitGruppenID": 11710,
       "AlarmVorlagenID": 17113,
@@ -83,6 +92,7 @@
     },
     {
       "EinheitenNummer": 13,
+      "RelevantFEZAlarm": "j",
       "FeuerwehrGruppe": "Loeschgruppe Langscheid",
       "UntereinheitGruppenID": 11711,
       "AlarmVorlagenID": 17114,
@@ -92,6 +102,7 @@
     },
     {
       "EinheitenNummer": 14,
+      "RelevantFEZAlarm": "j",
       "FeuerwehrGruppe": "Loeschgruppe Perscheid",
       "UntereinheitGruppenID": 11714,
       "AlarmVorlagenID": 17115,
@@ -101,6 +112,7 @@
     },
     {
       "EinheitenNummer": 15,
+      "RelevantFEZAlarm": "j",
       "FeuerwehrGruppe": "Loeschgruppe Wiebelsheim",
       "UntereinheitGruppenID": 11717,
       "AlarmVorlagenID": 17116,
@@ -110,6 +122,7 @@
     },
     {
       "EinheitenNummer": 16,
+      "RelevantFEZAlarm": "j",
       "FeuerwehrGruppe": "Loeschgruppe Laudert",
       "UntereinheitGruppenID": 11712,
       "AlarmVorlagenID": 17117,
@@ -119,6 +132,7 @@
     },
     {
       "EinheitenNummer": 2,
+      "RelevantFEZAlarm": "j",
       "FeuerwehrGruppe": "Loeschzug Gondershausen",
       "UntereinheitGruppenID": 11720,
       "AlarmVorlagenID": 17118,
@@ -128,6 +142,7 @@
     },
     {
       "EinheitenNummer": 3,
+      "RelevantFEZAlarm": "j",
       "FeuerwehrGruppe": "Loeschzug Pfalzfeld",
       "UntereinheitGruppenID": 11511,
       "AlarmVorlagenID": 17119,
@@ -137,6 +152,7 @@
     },
     {
       "EinheitenNummer": 4,
+      "RelevantFEZAlarm": "j",
       "FeuerwehrGruppe": "Loeschgruppe Doerth",
       "UntereinheitGruppenID": 11639,
       "AlarmVorlagenID": 17120,
@@ -146,6 +162,7 @@
     },
     {
       "EinheitenNummer": 5,
+      "RelevantFEZAlarm": "j",
       "FeuerwehrGruppe": "Loeschgruppe Beulich",
       "UntereinheitGruppenID": 11646,
       "AlarmVorlagenID": 17121,
@@ -155,6 +172,7 @@
     },
     {
       "EinheitenNummer": 6,
+      "RelevantFEZAlarm": "j",
       "FeuerwehrGruppe": "Loeschgruppe Lingerhahn",
       "UntereinheitGruppenID": 11647,
       "AlarmVorlagenID": 17122,
@@ -164,6 +182,7 @@
     },
     {
       "EinheitenNummer": 21.95,
+      "RelevantFEZAlarm": "n",
       "FeuerwehrGruppe": "WF FW St. Goar",
       "UntereinheitGruppenID": 40716,
       "AlarmVorlagenID": 17123,
@@ -173,6 +192,7 @@
     },
     {
       "EinheitenNummer": 19.95,
+      "RelevantFEZAlarm": "n",
       "FeuerwehrGruppe": "WF FW Urbar",
       "UntereinheitGruppenID": 40717,
       "AlarmVorlagenID": 17124,
@@ -182,6 +202,7 @@
     },
     {
       "EinheitenNummer": 18.95,
+      "RelevantFEZAlarm": "n",
       "FeuerwehrGruppe": "WF FW Niederburg",
       "UntereinheitGruppenID": 40713,
       "AlarmVorlagenID": 17125,
@@ -191,6 +212,7 @@
     },
     {
       "EinheitenNummer": 17.95,
+      "RelevantFEZAlarm": "n",
       "FeuerwehrGruppe": "WF FW Damscheid",
       "UntereinheitGruppenID": 40711,
       "AlarmVorlagenID": 17126,
@@ -200,6 +222,7 @@
     },
     {
       "EinheitenNummer": 11.95,
+      "RelevantFEZAlarm": "n",
       "FeuerwehrGruppe": "WF FW Oberwesel",
       "UntereinheitGruppenID": 40714,
       "AlarmVorlagenID": 17127,
@@ -209,6 +232,7 @@
     },
     {
       "EinheitenNummer": 12.95,
+      "RelevantFEZAlarm": "n",
       "FeuerwehrGruppe": "WF FW Dellhofen",
       "UntereinheitGruppenID": 40668,
       "AlarmVorlagenID": 17128,
@@ -218,6 +242,7 @@
     },
     {
       "EinheitenNummer": 13.95,
+      "RelevantFEZAlarm": "n",
       "FeuerwehrGruppe": "WF FW Langscheid",
       "UntereinheitGruppenID": 40712,
       "AlarmVorlagenID": 17129,
@@ -227,6 +252,7 @@
     },
     {
       "EinheitenNummer": 14.95,
+      "RelevantFEZAlarm": "n",
       "FeuerwehrGruppe": "WF FW Perscheid",
       "UntereinheitGruppenID": 40715,
       "AlarmVorlagenID": 17130,
@@ -236,6 +262,7 @@
     },
     {
       "EinheitenNummer": 15.95,
+      "RelevantFEZAlarm": "n",
       "FeuerwehrGruppe": "WF FW Wiebelsheim",
       "UntereinheitGruppenID": 40666,
       "AlarmVorlagenID": 17131,
@@ -245,6 +272,7 @@
     },
     {
       "EinheitenNummer": 16.95,
+      "RelevantFEZAlarm": "n",
       "FeuerwehrGruppe": "WF FW Laudert",
       "UntereinheitGruppenID": 40667,
       "AlarmVorlagenID": 17132,
@@ -254,6 +282,7 @@
     },
     {
       "EinheitenNummer": 1.95,
+      "RelevantFEZAlarm": "n",
       "FeuerwehrGruppe": "WF FW Emmelshausen",
       "UntereinheitGruppenID": 40612,
       "AlarmVorlagenID": 17133,
@@ -263,6 +292,7 @@
     },
     {
       "EinheitenNummer": 2.95,
+      "RelevantFEZAlarm": "n",
       "FeuerwehrGruppe": "WF FW Gondershausen",
       "UntereinheitGruppenID": 40614,
       "AlarmVorlagenID": 17134,
@@ -272,6 +302,7 @@
     },
     {
       "EinheitenNummer": 3.95,
+      "RelevantFEZAlarm": "n",
       "FeuerwehrGruppe": "WF FW Pfalzfeld",
       "UntereinheitGruppenID": 40613,
       "AlarmVorlagenID": 17135,
@@ -281,6 +312,7 @@
     },
     {
       "EinheitenNummer": 4.95,
+      "RelevantFEZAlarm": "n",
       "FeuerwehrGruppe": "WF FW Dörth",
       "UntereinheitGruppenID": 40617,
       "AlarmVorlagenID": 17136,
@@ -290,6 +322,7 @@
     },
     {
       "EinheitenNummer": 5.95,
+      "RelevantFEZAlarm": "n",
       "FeuerwehrGruppe": "WF FW Beulich",
       "UntereinheitGruppenID": 40616,
       "AlarmVorlagenID": 17137,
@@ -299,6 +332,7 @@
     },
     {
       "EinheitenNummer": 6.95,
+      "RelevantFEZAlarm": "n",
       "FeuerwehrGruppe": "WF FW Lingerhahn",
       "UntereinheitGruppenID": 40615,
       "AlarmVorlagenID": 17138,
@@ -308,6 +342,7 @@
     },
     {
       "EinheitenNummer": 90,
+      "RelevantFEZAlarm": "n",
       "FeuerwehrGruppe": "FW HUMI Wehrleitung",
       "UntereinheitGruppenID": 39763,
       "AlarmVorlagenID": 17139,
@@ -317,6 +352,7 @@
     },
     {
       "EinheitenNummer": 100,
+      "RelevantFEZAlarm": "j",
       "FeuerwehrGruppe": "FW HUMI FueSt. Rhein",
       "UntereinheitGruppenID": 39114,
       "AlarmVorlagenID": 17140,
@@ -326,6 +362,7 @@
     },
     {
       "EinheitenNummer": 101,
+      "RelevantFEZAlarm": "j",
       "FeuerwehrGruppe": "FW HUMI FueSt. Hunsrück",
       "UntereinheitGruppenID": 39115,
       "AlarmVorlagenID": 17141,
@@ -335,6 +372,7 @@
     },
     {
       "EinheitenNummer": 102,
+      "RelevantFEZAlarm": "n",
       "FeuerwehrGruppe": "FW HUMI FueST. Leitung",
       "UntereinheitGruppenID": 39300,
       "AlarmVorlagenID": "18651",
@@ -344,6 +382,7 @@
     },
     {
       "EinheitenNummer": 1.1,
+      "RelevantFEZAlarm": "n",
       "FeuerwehrGruppe": "FEZ Emmelshausen",
       "UntereinheitGruppenID": 11619,
       "AlarmVorlagenID": "18653",
@@ -353,6 +392,7 @@
     },
     {
       "EinheitenNummer": 103,
+      "RelevantFEZAlarm": "j",
       "FeuerwehrGruppe": "Atemschutzgerätewarte Emmelshausen",
       "UntereinheitGruppenID": 39301,
       "AlarmVorlagenID": "18655",
@@ -362,6 +402,7 @@
     },
     {
       "EinheitenNummer": 11.33,
+      "RelevantFEZAlarm": "n",
       "FeuerwehrGruppe": "FW Oberwesel - DLK - TLF 3000",
       "UntereinheitGruppenID": 39305,
       "AlarmVorlagenID": "18657",
@@ -371,6 +412,7 @@
     },
     {
       "EinheitenNummer": 1.11,
+      "RelevantFEZAlarm": "n",
       "FeuerwehrGruppe": "FW Emmelshausen - ELW 1",
       "UntereinheitGruppenID": 44195,
       "AlarmVorlagenID": "18659",
@@ -380,6 +422,7 @@
     },
     {
       "EinheitenNummer": 11.911,
+      "RelevantFEZAlarm": "n",
       "FeuerwehrGruppe": "FW Oberwesel - NA Zubringer",
       "UntereinheitGruppenID": 39305,
       "AlarmVorlagenID": "18662",
@@ -389,6 +432,7 @@
     },
     {
       "EinheitenNummer": 22.95,
+      "RelevantFEZAlarm": "n",
       "FeuerwehrGruppe": "FW Biebernheim LG Führung",
       "UntereinheitGruppenID": 40710,
       "AlarmVorlagenID": "18684",
@@ -398,6 +442,7 @@
     },
     {
       "EinheitenNummer": 23.95,
+      "RelevantFEZAlarm": "n",
       "FeuerwehrGruppe": "FW Werlau LG Führung",
       "UntereinheitGruppenID": 40718,
       "AlarmVorlagenID": "18685",
@@ -407,6 +452,7 @@
     },
     {
       "EinheitenNummer": 10000,
+      "RelevantFEZAlarm": "j",
       "FeuerwehrGruppe": "Test Alarmierungsgruppe",
       "UntereinheitGruppenID": 44929,
       "AlarmVorlagenID": "19011",
@@ -416,6 +462,7 @@
     },
     {
       "EinheitenNummer": 1.82025,
+      "RelevantFEZAlarm": "n",
       "FeuerwehrGruppe": "Gefahrstoff Gruppe Emmelshausen",
       "UntereinheitGruppenID": "46681",
       "AlarmVorlagenID": "19631",
@@ -425,6 +472,7 @@
     },
     {
       "EinheitenNummer": 1.82020,
+      "RelevantFEZAlarm": "n",
       "FeuerwehrGruppe": "Gefahrstoff Zug Emmelshausen",
       "UntereinheitGruppenID": "46679",
       "AlarmVorlagenID": "19632",
@@ -434,6 +482,7 @@
     },
     {
       "EinheitenNummer": 11.82624,
+      "RelevantFEZAlarm": "n",
       "FeuerwehrGruppe": "GW Mess Oberwesel Gruppe",
       "UntereinheitGruppenID": "45712",
       "AlarmVorlagenID": "19633",
