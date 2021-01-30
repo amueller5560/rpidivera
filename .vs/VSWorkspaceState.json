@@ -1,6 +1,13 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\CPPs_Archiv",
+    "\\Helps",
+    "\\PSFiles",
+    "\\PSFiles\\FEZ Manuelle Alarme",
+    "\\Py",
+    "\\Shells"
   ],
+  "SelectedNode": "\\PSFiles\\FEZ Manuelle Alarme\\VG-HUMI-DIVERA-FEZ-Alarm.ps1",
   "PreviewInSolutionExplorer": false
 }

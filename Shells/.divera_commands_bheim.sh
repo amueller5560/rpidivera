@@ -5,7 +5,7 @@
 # Source this file in your bash.rc to have the commands in your terminal.
 
 #The url of your monitor (with Acesskey for autologin).
-MONITOR={YOUR MONITOR URL}
+MONITOR={https://www.divera247.com/monitor/1.html?autologin=XYZ}
 
 # This function starts or stops the divera monitor.
 function monitor(){

@@ -1,0 +1,50 @@
+https://github.com/Dustin1358/Raspberry-Pi-Divera-Monitor.git
+
+git remote add origin https://github.com/Dustin1358/Raspberry-Pi-Divera-Monitor.git
+git push -u origin master
+
+cp monitordaueran /home/pi/Projekte/mon/m
+
+
+/home/pi/Projekte/mon/monitordaueran
+/home/pi/Projekte/mon/monitordaueran
+
+
+source ./home/pi/diverarun/monitordaueran
+
+source ./home/pi/diverarun/monitordaueraus
+
+
+. ~/.bash_functions/*.sh
+
+/home/pi/bashfunctions/divera_command_bheim.sh
+
+
+files=(divera_command_bheim.sh)
+path="$HOME/bashfunctions/"
+for file in ${files[@]}
+do
+  file_to_load=$path$file
+if [ -f "$file_to_load" ];
+then
+. $file_to_load
+echo "loaded $file_to_load"
+fi
+done
+
+
+
+bash commands aktivieren
+. ~/.bashrc
+
+
+---
+
+import subprocess
+
+def bash_command(cmd):
+    subprocess.Popen(['/bin/bash', '-c', cmd])
+___
+
+
+subprocess.run(["monitor", "on"]) 
