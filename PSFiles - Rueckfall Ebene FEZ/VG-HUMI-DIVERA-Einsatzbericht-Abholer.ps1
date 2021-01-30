@@ -1,4 +1,4 @@
-$DIVERA_Accesskey='iNdoc8PkMtmy4oF-6rGT6NsjZGtPxjo0Eb0ZzatvBuy2eW9urVpuNdVMZyNtpuOf'
+   $DIVERA_Accesskey='iNdoc8PkMtmy4oF-6rGT6NsjZGtPxjo0Eb0ZzatvBuy2eW9urVpuNdVMZyNtpuOf'
 #$LogDatum = Get-Date -Format "yyyy-MM-dd"
 $PDFAblagePfad = Get-Location
 $PDFAblagePfadRoot = $PDFAblagePfad.Path

@@ -10,7 +10,7 @@ from datetime import datetime
 #import os
 #from envbash import load_envbash
 #load_envbash('.bashrc')
-ACCESSKEY="h0drGF0jtGurBauAkxKEBS9OvAuXXozOHjPf-yIt_ZAHyRf86Wum6cWG83JAPXxW"
+ACCESSKEY="XYZ"
 API_URL="https://www.divera247.com/api/last-alarm?accesskey="+ACCESSKEY
 
 #Logging Area
