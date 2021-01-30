@@ -6,7 +6,7 @@ import time
 import json
 from datetime import datetime
 
-ACCESSKEY="h0drGF0jtGurBauAkxKEBS9OvAuXXozOHjPf-yIt_ZAHyRf86Wum6cWG83JAPXxW"
+ACCESSKEY="xyz"
 API_URL="https://www.divera247.com/api/last-alarm?accesskey="+ACCESSKEY
 screen_active=True
 
