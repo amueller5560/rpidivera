@@ -1,17 +1,16 @@
 #!/bin/bash
-
 # This file is an extension for the bash which contains the commands for
 # turning the screen ond and off and also starts and stops the monitor.
 # Source this file in your bash.rc to have the commands in your terminal.
 
 #The url of your monitor (with Acesskey for autologin).
-MONITOR={YOUR MONITOR URL}
+MONITOR='https://app.divera247.com/monitor/1.html?autologin=Lkg3rtFi016KA0SaHjW36R9EiUQ-JPbd'
 
 # This function starts or stops the divera monitor.
 function monitor(){
 	if [ $1 = on ]; then
 		# starts chromium in in kiosk mode
-		chromium-browser --noerrdialogs --kiosk --incognito $MONITOR &>/dev/null &
+		chromium-browser --noerrdialogs --kiosk  --incognito $MONITOR --display=:0 &>/dev/null &
 	elif [ $1 = off ]; then
 		# just kill every chromium process
 		pkill chromium >/dev/null
@@ -25,8 +24,7 @@ function monitor(){
 function screen(){
 	if [ $1 = on ]; then
 		# Version 1: enables hdmi port after the screen was in standby
-		vcgencmd display_power 1 >/dev/null
-		
+		#vcgencmd display_power 1 >/dev/null
 		# Version 2: send cec-signal to the screen that he should wake up
 		echo on 0 | cec-client -s -d 1
 
@@ -44,8 +42,7 @@ function screen(){
 		#echo tx 4F:82:10:00 | cec-client -s -d 1
 	elif [ $1 = off ]; then
 		# Version 1: disable hdmi port that the screen goes in standby
-		vcgencmd display_power 0 >/dev/null
-
+		#vcgencmd display_power 0 >/dev/null
 		# Version 2: send cec-signal to the screen that he should go in standby
 		echo standby 0 | cec-client -s -d 1
 	else
