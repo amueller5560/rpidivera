@@ -1,0 +1,52 @@
+	####### Manueller DIVERA FEZ Alarm #######
+    ####### Hilfe & Anleitung #######
+    Das manueller Alarm Skript kann gezielt Gruppen/Untereinheiten in DIVERA24/7 ansprechen.
+	Anwendungsfall ist hier nur der manuelle Aufruf via FEZ Personal
+    
+Beschreibung:
+    Die gewünschten FWs oder Gruppen werden via Nummerierung aufgerufen. Im Hintergrund sind die benötigten RICs im Config File hinterlegt.
+    Optional sind die Parameter für Alarm Stichwort und Alarm Text.
+    Sind diese Parameter nicht belegt wird als Stichwort beispielhaft:
+    FW Ort - Alarm über FEZ
+    Wehrführer FW Ort - Alarm über FEZ
+    ausgegeben.
+Aufruf Parameter: EinheitenIDs
+    Die Einheiten können gezielt beim Aufruf mit übernommen werden.
+    Die Eingabe erfolgt Komma getrennt.
+    '21,22,23'
+    Siehe angefügte Beispiele
+Aufruf Parameter: AlarmStichwort
+    Dieser Parameter kann optional als Alarmstichwort mitgeben werden.
+    Ist dieser Parameter nicht belegt wird als Stichwort beispielhaft:
+    FW Ort - Rückfallebene
+    Wehrführer FW Ort - Rückfallebene
+    ausgegeben.
+Aufruf Parameter: AlarmTextDetail
+    Dieser Parameter kann optional als Alarm Text mitgeben werden.
+    Bei Nichtbefüllung steht sonst im Alarmtext immer:
+    Automatischer Alarm über Rückfallebene - keine Details vorhanden    
+
+Infos:
+    Autor: Andreas Müller - amueller@feuerwehr-biebernheim.de
+    Last Edit: 2021-01-30
+    *   Version 1.0.0 - 01.02.2021 - initiale Version 
+
+Beispiel 1:
+        Aufruf ohne Parameter
+        ./FEZ-VG-HUMI-DIVERA-Alarm.ps1
+        Alarmauswahl erfolgt über das Menü
+Beispiel 2:
+        Aufruf mit Übergabe von Einheiten 
+        ./FEZ-VG-HUMI-DIVERA-Alarm.ps1 '21,22,23'
+        Das Menü wird nicht angezeigt und werden direkt die übergebenen Einheiten in die Alarmierung übernommen.
+        Im Anschluss kann der Alarmtext (optional) eingegeben werden. Das Stichwort lautet immer: Einsatzalarm 
+
+        Wichtig: Die Parameter müssen in einfache 'Hochkommas' gesetzt werden!!!
+Beispiel 3:
+        Aufruf mit Übergabe von Einheiten & Stichwort $ Alarmtext 
+        ./FEZ-VG-HUMI-DIVERA-Alarm.ps1 '21,22,23' 'Alarmstichwort Beispiel' 'Alarmtext Beispiel Test 1234'
+
+        Das Menü wird nicht angezeigt und werden direkt die übergebenen Einheiten in die Alarmierung übernommen.
+        Weiterhin wird das Alarmstichwort und der Text direkt und angezeigt. Dies muss nur noch bestätigt werden. 
+
+        Wichtig: Die Parameter müssen in einfache 'Hochkommas' gesetzt werden!!!

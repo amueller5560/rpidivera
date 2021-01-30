@@ -1,8 +1,10 @@
 <#
 .SYNOPSIS
+    ####### Manueller DIVERA FEZ Alarm #######
+    ####### Hilfe & Anleitung #######
     Das manueller Alarm Skript kann gezielt Gruppen/Untereinheiten in DIVERA24/7 ansprechen.
 	Anwendungsfall ist hier nur der manuelle Aufruf via FEZ Personal
-   
+    
 .DESCRIPTION
     Die gewünschten FWs oder Gruppen werden via Nummerierung aufgerufen. Im Hintergrund sind die benötigten RICs im Config File hinterlegt.
     Optional sind die Parameter für Alarm Stichwort und Alarm Text.
@@ -10,7 +12,11 @@
     FW Ort - Alarm über FEZ
     Wehrführer FW Ort - Alarm über FEZ
     ausgegeben.
-
+.PARAMETER EinheitenIDs
+    Die Einheiten können gezielt beim Aufruf mit übernommen werden.
+    Die Eingabe erfolgt Komma getrennt.
+    '21,22,23'
+    Siehe angefügte Beispiele
 .PARAMETER AlarmStichwort
     Dieser Parameter kann optional als Alarmstichwort mitgeben werden.
     Ist dieser Parameter nicht belegt wird als Stichwort beispielhaft:
@@ -23,11 +29,29 @@
     Automatischer Alarm über Rückfallebene - keine Details vorhanden    
 
 .NOTES
-    Author: Andreas Müller
-    Last Edit: 2020-10-23
-    *   Version 1.0.0 - 01.09.2020 - initiale Version 
-        
+    Author: Andreas Müller - amueller@feuerwehr-biebernheim.de
+    Last Edit: 2021-01-30
+    *   Version 1.0.0 - 01.02.2021 - initiale Version 
 
+.EXAMPLE
+        Aufruf ohne Parameter
+        ./FEZ-VG-HUMI-DIVERA-Alarm.ps1
+        Alarmauswahl erfolgt über das Menü
+.EXAMPLE
+        Aufruf mit Übergabe von Einheiten 
+        ./FEZ-VG-HUMI-DIVERA-Alarm.ps1 '21,22,23'
+        Das Menü wird nicht angezeigt und werden direkt die übergebenen Einheiten in die Alarmierung übernommen.
+        Im Anschluss kann der Alarmtext (optional) eingegeben werden. Das Stichwort lautet immer: Einsatzalarm 
+
+        Wichtig: Die Parameter müssen in einfache 'Hochkommas' gesetzt werden!!!
+.EXAMPLE
+        Aufruf mit Übergabe von Einheiten & Stichwort $ Alarmtext 
+        ./FEZ-VG-HUMI-DIVERA-Alarm.ps1 '21,22,23' 'Alarmstichwort Beispiel' 'Alarmtext Beispiel Test 1234'
+
+        Das Menü wird nicht angezeigt und werden direkt die übergebenen Einheiten in die Alarmierung übernommen.
+        Weiterhin wird das Alarmstichwort und der Text direkt und angezeigt. Dies muss nur noch bestätigt werden. 
+
+        Wichtig: Die Parameter müssen in einfache 'Hochkommas' gesetzt werden!!!
 
 #>
 
@@ -49,7 +73,7 @@ $DIVERA_Accesskey='XYZ'
 
 #$ConfigFilePath = "C:\XXX\XXX\VG-HUMI-DIVERA-Einheiten-Gruppen.txt"
 $ConfigFilePath = Get-Location
-$ConfigFilePath = $ConfigFilePath.Path + '\' + 'VG-HUMI-DIVERA-Einheiten-Gruppen.txt'
+$ConfigFilePath = $ConfigFilePath.Path + '\' + 'VG-HUMI-DIVERA-Einheiten-GruppenFEZ.txt'
 # Pfad zum Ablegen der LogDateien            
 #$LogPfad = "C:\XXX\XXX\Logs"
 $LogPfad = Get-Location
@@ -143,7 +167,7 @@ function set-AlarmRueckfall
       $AlarmAufrufUrl = "https://www.divera247.com/api/alarm?alarmcode_id=" + $AlarmVorlage + "&" + $AlarmStichwort + "&" + $AlarmTextDetail + "&accesskey="+$DIVERA_Accesskey
 
       #Windows 10 Web Aufruf:
-      #curl $AlarmAufrufUrl
+      curl $AlarmAufrufUrl
       
       #write-AlarmLogRecord -Typ INFO 'Alarm ausgelöst mit Stichwort und Textdetail!'
       #write-AlarmLogRecord -Typ INFO 'Ende'
@@ -153,7 +177,7 @@ function set-AlarmRueckfall
       $AlarmAufrufUrl = "https://www.divera247.com/api/alarm?alarmcode_id=" + $AlarmVorlage + "&" + $AlarmStichwort + "&accesskey="+$DIVERA_Accesskey
 
       #Windows 10 Web Aufruf:
-      #curl $AlarmAufrufUrl
+      curl $AlarmAufrufUrl
            
       #write-AlarmLogRecord -Typ INFO 'Alarm ausgelöst mit Stichwort!'
       #write-AlarmLogRecord -Typ INFO 'Ende'
@@ -163,7 +187,7 @@ function set-AlarmRueckfall
       $AlarmAufrufUrl = "https://www.divera247.com/api/alarm?alarmcode_id=" + $AlarmVorlage + "&" + $AlarmTextDetail + "&accesskey="+$DIVERA_Accesskey
 
       #Windows 10 Web Aufruf:
-      #curl $AlarmAufrufUrl
+      curl $AlarmAufrufUrl
            
       #write-AlarmLogRecord -Typ INFO 'Alarm ausgelöst mit Textdetail!'
       #write-AlarmLogRecord -Typ INFO 'Ende'
@@ -173,7 +197,7 @@ function set-AlarmRueckfall
       $AlarmAufrufUrl = "https://www.divera247.com/api/alarm?alarmcode_id=" + $AlarmVorlage + "&accesskey="+$DIVERA_Accesskey
 
       #Windows 10 Web Aufruf:
-      #curl $AlarmAufrufUrl
+      curl $AlarmAufrufUrl
       
       #Windows XP Web Aufruf:
       #WinXP-WebRequest $AlarmAufrufUrl
@@ -225,7 +249,7 @@ else
 
 }
 $ConfigFilePath = Get-Location
-$ConfigFilePath = $ConfigFilePath.Path + '\' + 'VG-HUMI-DIVERA-Einheiten-Gruppen.txt'
+$ConfigFilePath = $ConfigFilePath.Path + '\' + 'VG-HUMI-DIVERA-Einheiten-GruppenFEZ.txt'
 
 
 $ConfigFileJSON = Get-Content $ConfigFilePath | ConvertFrom-Json
@@ -294,8 +318,8 @@ function FEZ-Menu
 
     #Write-Host 'Folgende Einheiten werden alarmiert:'
     $OutPutString = 'Folgende Einheiten werden alarmiert:'
-    #Write-Host '- - - - - - - - - - - - - - - - - - -'
-    $OutPutString += '- - - - - - - - - - - - - - - - - - -'
+    Write-Host '- - - - - - - - - - - - - - - - - - -'
+    #$OutPutString += '- - - - - - - - - - - - - - - - - - -'
     foreach($Einzeleinheit in $FEZAlarmEinheitenArr) 
         {
             ##$u.surname
@@ -303,8 +327,8 @@ function FEZ-Menu
             If ($Einheit -ne $null)
             {
                 $FEZAlarmEinheitenAlarmArr = $FEZAlarmEinheitenAlarmArr + $Einzeleinheit
-                #Write-Host $Einheit.EinheitenNummer ' - ' $Einheit.FeuerwehrGruppe
-                $OutPutString +=$Einheit.EinheitenNummer + ' - ' + $Einheit.FeuerwehrGruppe
+                Write-Host $Einheit.EinheitenNummer ' - ' $Einheit.FeuerwehrGruppe
+                #$OutPutString +=$Einheit.EinheitenNummer + ' - ' + $Einheit.FeuerwehrGruppe | Out-String
                 #Write-Host ''
                 $EinheitenCounter = $EinheitenCounter + 1
             }
@@ -322,9 +346,9 @@ function FEZ-Menu
     }
     else
     {
-        #Write-Host "Es wurden insgesamt "$EinheitenCounter" Einheit(en) gefunden - "$EinheitenFehlerCounter" Einheit(en) wurden nicht gefunden werden verworfen!"
-        $OutPutString += "Es wurden insgesamt "+$EinheitenCounter+" Einheit(en) gefunden - "+$EinheitenFehlerCounter+"Einheit(en) wurden nicht gefunden werden verworfen!"
-        Write-Host $OutPutString | Out-String
+        Write-Host "Es wurden insgesamt "$EinheitenCounter" Einheit(en) gefunden - "$EinheitenFehlerCounter" Einheit(en) wurden nicht gefunden werden verworfen!"
+        #$OutPutString += "Es wurden insgesamt "+$EinheitenCounter+" Einheit(en) gefunden - "+$EinheitenFehlerCounter+"Einheit(en) wurden nicht gefunden werden verworfen!"
+        #Write-Host $OutPutString | Out-String
         #Write-Host ''
 
     }   
@@ -389,9 +413,8 @@ function FEZ-Menu
                 $Einheit = $ConfigFileJSON.Einheiten.Where({$_.EinheitenNummer -eq $EinzelAlarmeinheit})
                 If ($Einheit -ne $null)
                 {
-                    $AktuelleEinheitAlarmvorlageID = $Einheit.AlarmVorlagenID
-                    $AktuelleEinheitGroupAlarmListCode = $Einheit.GroupAlarmListCode              
-                    set-AlarmRueckfall $AlarmAusloesungScharf $AktuelleEinheitAlarmvorlageID $AktuelleEinheitGroupAlarmListCode $AlarmStichwortEingabe $AlarmTextDetailEingabe
+                    $AktuelleEinheitAlarmvorlageID = $Einheit.AlarmVorlagenID            
+                    set-AlarmRueckfall $AlarmAusloesungScharf $AktuelleEinheitAlarmvorlageID $AlarmStichwortEingabe $AlarmTextDetailEingabe
                     $FEZAlarmLogString = "Einheiten Nummer: "+ $Einheit.EinheitenNummer + " - " + $Einheit.FeuerwehrGruppe +  " wurde alarmiert!"
                     Write-Host ''
                     write-AlarmLogRecord -Typ INFO $FEZAlarmLogString
