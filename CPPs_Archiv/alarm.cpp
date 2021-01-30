@@ -68,7 +68,7 @@ int main(void) {
 			t = time(NULL);
 			ts = localtime(&t);
 			fprintf (stdout, "%02d.%02d.%02d - %02d:%02d:%02d Alarm\n", ts->tm_mday, (1+ ts->tm_mon),  (1900 +ts->tm_year),ts->tm_hour, ts->tm_min, ts->tm_sec);
-			r = system("curl --data \"zugang=ffw112&alarm=ThoAnRolMuell\" https://www.mitgliedsverwaltung.net/statusgeber.php");
+			r = system("curl --data \"zugang=xyz&alarm=xyz\" https://www.mitgliedsverwaltung.net/statusgeber.php");
 			if(r == 0)
 			{
 				eventCounter = eventCounter & ~0x01;
@@ -99,7 +99,7 @@ int main(void) {
 			t = time(NULL);
 			ts = localtime(&t);
 			fprintf (stdout, "%02d.%02d.%02d - %02d:%02d:%02d USER 1\n", ts->tm_mday, (1+ ts->tm_mon),  (1900 +ts->tm_year),ts->tm_hour, ts->tm_min, ts->tm_sec );
-			r = system("curl --data \"zugang=ffw112&user=1\" https://www.mitgliedsverwaltung.net/statusgeber.php");
+			r = system("curl --data \"zugang=xyz&user=xyz\" https://www.mitgliedsverwaltung.net/statusgeber.php");
 			if(r == 0)
 			{
 				eventCounter = eventCounter & ~0x02;
